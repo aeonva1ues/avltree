@@ -19,16 +19,16 @@ func PreOrder(root *entity.TreeNode) {
 	if nil == root {
 		return
 	}
-	InOrder(root.Left)
-	InOrder(root.Right)
 	fmt.Printf("%d\n", root.Value)
+	PreOrder(root.Left)
+	PreOrder(root.Right)
 }
 
 func PostOrder(root *entity.TreeNode) {
  	if nil == root {
   		return
  	}
+	PostOrder(root.Left)
+	PostOrder(root.Right)
 	fmt.Printf("%d\n", root.Value)
-	InOrder(root.Left)
-	InOrder(root.Right)
 }

@@ -41,9 +41,3 @@ func Delete(root *entity.TreeNode, val int) *entity.TreeNode {
 	}
 	return root
 }
-
-
-func AvlDelete(root *entity.TreeNode, val int) *entity.TreeNode {
-	result := Delete(root, val)
-	return Rotate(result)
-}

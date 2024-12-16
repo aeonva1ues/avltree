@@ -57,7 +57,7 @@ func main() {
 				if err != nil {
 					fmt.Println(errors.ErrInvalidCommandValue)
 				} else {
-					avl = algorithms.AvlDelete(avl, newNumber)
+					avl = algorithms.Delete(avl, newNumber)
 					executed = true
 				}
 			}
