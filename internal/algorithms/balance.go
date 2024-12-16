@@ -7,6 +7,9 @@ import (
 )
 
 func Rotate(vertex *entity.TreeNode) *entity.TreeNode {
+	if vertex == nil {
+		return nil
+	}
 	if math.Abs(float64(vertex.Left.GetHeight() - vertex.Right.GetHeight())) < 2 {
 		// Вращать не надо, поддерево с вершиной vertex и так сбалансировано.
 		return vertex

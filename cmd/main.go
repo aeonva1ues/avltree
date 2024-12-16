@@ -13,8 +13,10 @@ import (
 )
 
 func main() {
-	var executed bool
-	avl := entity.NewEmptyTreeNode()
+	var (
+		executed bool
+		avl *entity.TreeNode
+	)
 	fmt.Println(
 		"Здравствуйте! Данная программа реализует структуру данных AVL дерево и предоставляет операции для работы с ней.\n",
 		"Доступные операции:\n",
@@ -49,7 +51,7 @@ func main() {
 				if err != nil {
 					fmt.Println(errors.ErrInvalidCommandValue)
 				} else {
-					avl = algorithms.AvlInsert(avl, newNumber, 0)
+					avl = algorithms.AvlInsert(avl, newNumber)
 					executed = true
 				}
 			} else if operands[0] == "DELETE" {
@@ -57,13 +59,17 @@ func main() {
 				if err != nil {
 					fmt.Println(errors.ErrInvalidCommandValue)
 				} else {
-					avl = algorithms.Delete(avl, newNumber)
+					avl = algorithms.AvlDelete(avl, newNumber)
 					executed = true
 				}
 			}
 		} else if len(operands) == 1 {
 			if command == "ROOT" {
-				fmt.Println(avl.Value)
+				if avl != nil {
+					fmt.Println(avl.Value)
+				} else {
+					fmt.Println(errors.ErrRootDoesntExist)
+				}
 				executed = true
 			}
 		}
