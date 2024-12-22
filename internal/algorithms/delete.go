@@ -34,7 +34,7 @@ func Delete(root *entity.TreeNode, val int) (*entity.TreeNode, bool) {
 			return root, true
 		}
 
-		temp := root
+		temp := root.Right
 		for temp != nil && temp.Left != nil {
 			temp = temp.Left
 		}
